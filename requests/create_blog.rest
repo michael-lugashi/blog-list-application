@@ -1,0 +1,25 @@
+# GOOD REQUEST
+
+POST http://localhost:8080/api/blogs/
+Content-Type: application/json
+
+{
+    "title": "From vs code rest client",
+    "author": "J.R. Hue",
+    "url": "https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing#exercises-4-1-4-2",
+    "likes": 5
+}
+
+###
+
+#   BAD REQUEST
+
+POST http://localhost:8080/api/blogs/
+Content-Type: application/json
+
+{
+    "title": "From vs code rest client",
+    "author": "J.R. Hue",
+    "url": "https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing#exercises-4-1-4-2",
+    "likes": {"5": 5}
+}
