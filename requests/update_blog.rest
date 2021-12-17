@@ -1,0 +1,1 @@
+PUT  http://localhost:8080/api/blogs/61b831ecc012bc5d6b8c169e
