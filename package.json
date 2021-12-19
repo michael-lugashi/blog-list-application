@@ -13,7 +13,8 @@
     "lint": "eslint .",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "testNotes": "npm test -- tests/note_api.test.js --watch",
-    "b": "npm test -- tests/blog_api.test.js"
+    "testBlogs": "npm test -- tests/blog_api.test.js",
+    "u": "npm test -- tests/users_api.test.js"
   },
   "repository": {
     "type": "git",
@@ -27,11 +28,13 @@
   },
   "homepage": "https://github.com/michael-lugashi/blog-list-application#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "mongoose": "^6.1.1"
+    "mongoose": "^6.1.1",
+    "mongoose-unique-validator": "^3.0.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
