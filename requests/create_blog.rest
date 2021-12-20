@@ -7,6 +7,7 @@ Content-Type: application/json
     "title": "From vs code rest client",
     "author": "J.R. Hue",
     "url": "https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing#exercises-4-1-4-2",
+    "authorInfo": "61c006ec95fb7a95baef614a",
     "likes": 5
 }
 

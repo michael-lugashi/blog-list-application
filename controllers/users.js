@@ -5,12 +5,14 @@ const User = require('../models/userSchema');
 usersRouter.post('/', async (request, response, next) => {
   try {
     const { password, username, name } = request.body;
-    if (password.length < 3) {
+    if (!password) {
+      throw new Error('Password is missing!');
+    }
+    if (password && password.length < 3) {
       throw new Error('Password must be at least three characters!');
     }
     const saltRounds = 10;
     const passwordHash = await bcrypt.hash(password, saltRounds);
-
     const user = new User({
       username: username,
       name: name,
@@ -27,7 +29,7 @@ usersRouter.post('/', async (request, response, next) => {
 
 usersRouter.get('/', async (request, response, next) => {
   try {
-    const users = await User.find({});
+    const users = await User.find({}).populate('blogs');
     response.json(users);
   } catch (error) {
     next(error);
