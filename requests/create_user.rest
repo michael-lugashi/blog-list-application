@@ -1,0 +1,61 @@
+### GOOD REQUEST -Works only once because of unique username. Change username after every request!
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "username": "myGuyFred30",
+    "name": "Fred John",
+    "password": "123456"
+}
+
+
+####################################
+
+### BAD REQUEST -Username is too short!
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "username": "ne",
+    "name": "Fred John",
+    "password": "1223"
+}
+
+####################################
+
+### BAD REQUEST -Password is too short!
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "username": "username is long enough",
+    "name": "Fred John",
+    "password": "12"
+}
+
+####################################
+
+### BAD REQUEST -Password is missing!
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "username": "username is not missing",
+    "name": "Fred John"
+}
+
+####################################
+
+### BAD REQUEST -Username is missing!
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "name": "Fred John",
+    "password": "1234"
+}

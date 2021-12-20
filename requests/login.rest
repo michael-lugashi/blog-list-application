@@ -1,0 +1,32 @@
+### GOOD REQUEST
+
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+    "username": "myGuyFred30",
+    "password": "123456"
+}
+
+
+### BAD REQUEST -Password incorect!
+
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+    "username": "myGuyFred30",
+    "password": "incorect password"
+}
+
+
+
+### BAD REQUEST -Username incorect!
+
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+    "username": "username does not exist",
+    "password": "123456"
+}
