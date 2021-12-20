@@ -2,12 +2,12 @@
 
 POST http://localhost:8080/api/blogs/
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im15R3V5RnJlZDMwIiwiaWQiOiI2MWMwMTNmZDkwZDY1ODA0ZDllMDg3ZjMiLCJpYXQiOjE2Mzk5ODIzOTQsImV4cCI6MTYzOTk4NTk5NH0.cGXlXr8OO-WId5Ft2ORmh1x6ACHqBoWVXxlO2iX3q58
 
 {
     "title": "From vs code rest client",
     "author": "J.R. Hue",
     "url": "https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing#exercises-4-1-4-2",
-    "authorInfo": "61c006ec95fb7a95baef614a",
     "likes": 5
 }
 

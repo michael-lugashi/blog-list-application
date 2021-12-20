@@ -4,9 +4,9 @@ POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
-    "username": "myGuyFred2",
+    "username": "myGuyFred30",
     "name": "Fred John",
-    "password": "1234"
+    "password": "123456"
 }
 
 
