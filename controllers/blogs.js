@@ -3,12 +3,14 @@ const jwt = require('jsonwebtoken');
 const Blog = require('../models/blogSchema');
 const User = require('../models/userSchema');
 
-const getTokenFrom = (request) => {
+const tokenExtractor = (request, response, next) => {
   const authorization = request.get('authorization');
   if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
-    return authorization.substring(7);
+    request.token = authorization.substring(7);
+    next();
+  } else {
+    response.status(401).json({ error: 'token missing' });
   }
-  return null;
 };
 
 blogRouter.get('/', async (request, response, next) => {
@@ -23,12 +25,11 @@ blogRouter.get('/', async (request, response, next) => {
   }
 });
 
-blogRouter.post('/', async (request, response, next) => {
+blogRouter.post('/', tokenExtractor, async (request, response, next) => {
   try {
-    const token = getTokenFrom(request);
-    const decodedToken = jwt.verify(token, process.env.SECRET);
-    if (!token || !decodedToken.id) {
-      return response.status(401).json({ error: 'token missing or invalid' });
+    const decodedToken = jwt.verify(request.token, process.env.SECRET);
+    if (!decodedToken.id) {
+      return response.status(401).json({ error: 'invalid token' });
     }
     const { title, author, url, likes } = request.body;
 
